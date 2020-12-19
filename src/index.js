@@ -12,12 +12,12 @@ console.log("evaluating", keys);
 
 for (let key of keys) {
 	if (isProd === true) {
-		console.log("checking for key", `${key}_PROD`);
+		console.log("checking for key in", `${key}_PROD`);
 		const value = process.env[`${key}_PROD`];
 		console.log(`replacing ${key} with value from ${key}_PROD`);
 		core.exportVariable(key, value);
 	} else {
-		console.log("checking for key", key);
+		console.log("checking for key in", key);
 		const value = process.env[key];
 		if (value) {
 			core.exportVariable(key, value);
