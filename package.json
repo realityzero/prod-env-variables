@@ -1,7 +1,7 @@
 {
   "name": "prod-env-variables",
   "version": "1.0.0",
-  "description": "Use one set of environment variables bsaed on iProd boolean variable value",
+  "description": "Use one set of environment variables based on iProd boolean variable value",
   "private": "true",
   "main": "dist/index.js",
   "scripts": {

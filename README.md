@@ -1,6 +1,7 @@
 # Production Environment Variables
 
-Use one set of environment variables bsaed on iProd boolean variable value
+Use one set of environment variables based on iProd boolean variable value.
+Sets the env variable scope for whole runner.
 
 ## Usage
 
