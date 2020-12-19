@@ -1,6 +1,6 @@
 import * as core from "@actions/core";
 
-let isProd = core.getInput("isProd");
+let isProd = core.getInput("isProd") === 'true';
 console.log(`isProd set to: ${isProd}`);
 
 const keysInput = core.getInput("keys", {
