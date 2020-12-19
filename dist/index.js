@@ -402,7 +402,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_core__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_actions_core__WEBPACK_IMPORTED_MODULE_0__);
 
 
-let isProd = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput("isProd");
+let isProd = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput("isProd") === 'true';
 console.log(`isProd set to: ${isProd}`);
 
 const keysInput = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput("keys", {
@@ -413,11 +413,13 @@ const keys = keysInput.split(/\r?\n/);
 console.log("evaluating", keys);
 
 for (let key of keys) {
-	if (isProd) {
+	if (isProd === true) {
+		console.log("checking for key in", `${key}_PROD`);
 		const value = process.env[`${key}_PROD`];
 		console.log(`replacing ${key} with value from ${key}_PROD`);
 		_actions_core__WEBPACK_IMPORTED_MODULE_0__.exportVariable(key, value);
 	} else {
+		console.log("checking for key in", key);
 		const value = process.env[key];
 		if (value) {
 			_actions_core__WEBPACK_IMPORTED_MODULE_0__.exportVariable(key, value);
