@@ -24,7 +24,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - uses: arpitremarkable/prod-env-variables@v1
+    - uses: arpitremarkable/prod-env-variables@v2
       with:
         keys: |
           API_URL
