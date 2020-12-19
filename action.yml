@@ -6,7 +6,7 @@ inputs:
   keys:
     description: 'The environment variables to search replace with production values.'
     required: true
-  idProd:
+  isProd:
     description: 'Is prod environment active?'
     required: false
     default: false
