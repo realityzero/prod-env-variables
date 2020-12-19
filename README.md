@@ -1,13 +1,13 @@
 # Production Environment Variables
 
-Use one set of environment variables on development branches and another set on the default branch.
+Use one set of environment variables bsaed on iProd boolean variable value
 
 ## Usage
 
 ### Inputs
 
 * `keys`: The environment variables to search replace with production values.
-* `defaultBranchName`: The default branch name (defaults to master).
+* `isProd`: Boolean variable indicating whether to use Production credentials or not.
 
 ### Example Workflow
 
@@ -39,4 +39,4 @@ jobs:
       run: echo $GOOGLE_ANALYTICS
 ```
 
-With the above workflow, on the `master` branch, `API_URL` would be `https://api.example.com` while `GOOGLE_ANALYTICS` would be `my_analytics_key`. On any other branch, `API_URL` would be `https://devapi.example.com` while `GOOGLE_ANALYTICS` would be empty.
+With the above workflow, on the `isProd == true`, `API_URL` would be `https://api.example.com` while `GOOGLE_ANALYTICS` would be `my_analytics_key`. On any other falsy value, `API_URL` would be `https://devapi.example.com` while `GOOGLE_ANALYTICS` would be empty.

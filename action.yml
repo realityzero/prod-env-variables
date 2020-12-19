@@ -1,5 +1,5 @@
 name: 'Production Environment Variables'
-description: 'Use one set of environment variables on development branches and another set on the default branch.'
+description: 'Use one set of environment variables bsaed on iProd boolean variable value'
 author: 'Chad Lee'
 
 inputs:
