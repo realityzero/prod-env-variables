@@ -1,4 +1,4 @@
-name: 'Production Environment Variables'
+name: 'Production Environment Variables On Flag'
 description: 'Use one set of environment variables based on iProd boolean variable value'
 author: 'Chad Lee'
 
