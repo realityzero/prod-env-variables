@@ -1,7 +1,7 @@
 import * as core from "@actions/core";
 
-let defaultBranchName = core.getInput("defaultBranchName");
-console.log(`Using default branch name: ${defaultBranchName}`);
+let isProd = core.getInput("isProd");
+console.log(`isProd set to: ${isProd}`);
 
 const keysInput = core.getInput("keys", {
 	required: true
@@ -10,13 +10,8 @@ const keysInput = core.getInput("keys", {
 const keys = keysInput.split(/\r?\n/);
 console.log("evaluating", keys);
 
-const branchName = process.env.GITHUB_REF;
-if (!branchName) {
-	throw new Error("GITHUB_REF not available. Could not determine branch name.");
-}
-
 for (let key of keys) {
-	if (branchName == `refs/heads/${defaultBranchName}`) {
+	if (isProd) {
 		const value = process.env[`${key}_PROD`];
 		console.log(`replacing ${key} with value from ${key}_PROD`);
 		core.exportVariable(key, value);

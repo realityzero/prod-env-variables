@@ -402,8 +402,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_core__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_actions_core__WEBPACK_IMPORTED_MODULE_0__);
 
 
-let defaultBranchName = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput("defaultBranchName");
-console.log(`Using default branch name: ${defaultBranchName}`);
+let isProd = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput("isProd");
+console.log(`isProd set to: ${isProd}`);
 
 const keysInput = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput("keys", {
 	required: true
@@ -412,13 +412,8 @@ const keysInput = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput("keys", {
 const keys = keysInput.split(/\r?\n/);
 console.log("evaluating", keys);
 
-const branchName = process.env.GITHUB_REF;
-if (!branchName) {
-	throw new Error("GITHUB_REF not available. Could not determine branch name.");
-}
-
 for (let key of keys) {
-	if (branchName == `refs/heads/${defaultBranchName}`) {
+	if (isProd) {
 		const value = process.env[`${key}_PROD`];
 		console.log(`replacing ${key} with value from ${key}_PROD`);
 		_actions_core__WEBPACK_IMPORTED_MODULE_0__.exportVariable(key, value);

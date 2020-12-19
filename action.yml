@@ -6,10 +6,10 @@ inputs:
   keys:
     description: 'The environment variables to search replace with production values.'
     required: true
-  defaultBranchName:
-    description: 'The default branch name (defaults to master).'
+  idProd:
+    description: 'Is prod environment active?'
     required: false
-    default: 'master'
+    default: false
 
 runs:
   using: 'node12'
