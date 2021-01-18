@@ -26,6 +26,7 @@ jobs:
 
     - uses: arpitremarkable/prod-env-variables@v2
       with:
+        isProd: ${{ github.ref == 'refs/heads/master' }}
         keys: |
           API_URL
           GOOGLE_ANALYTICS
