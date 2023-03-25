@@ -23,7 +23,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - uses: arpitremarkable/prod-env-variables@v2
+    - uses: realityzero/prod-env-variables@v2
       with:
         isProd: ${{ github.ref == 'refs/heads/master' }}
         keys: |
